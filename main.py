@@ -21,3 +21,9 @@ for line in f:
 
 print('number of nodes:' + str(len(G.nodes)))
 print('number of edges:' + str(len(G.edges)))
+
+A = nx.adjacency_matrix(G)
+A_3 = A.dot(A).dot(A)
+A_4 = A_3.dot(A)
+print('matrix X (A^3):' + str(A_3.count_nonzero()) + ' non zeros')
+print('matrix Y (A^4):' + str(A_4.count_nonzero()) + ' non zeros')
