@@ -33,3 +33,11 @@ C = A.dot(A.transpose())
 B = A.transpose().dot(A)
 print('co-citation max value: ' + str(C.max()))
 print('bibliographic coupling max value: ' + str(B.max()))
+
+L_mutual = 0
+for u in list(G.nodes()):
+	for v in list(G.nodes()):
+		if u != v and G.has_edge(u, v) and G.has_edge(v, u):
+			L_mutual += 1;
+
+print('reciprocity (traditional definition): ' + str(L_mutual/len(G.edges)))
